@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "more-bones",
+  "version": "${version}",
+
+  "name": "Example Mod",
+  "description": "BONES",
+  "authors": [
+    "Zainyest"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/morebones/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.zainyest.morebones.MoreBones"
+    ],
+    "client": [
+      "com.zainyest.morebones.MoreBonesClient"
+    ]
+  },
+  "mixins": [
+    "more-bones.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
