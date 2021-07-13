@@ -16,16 +16,23 @@ public class MoreBones implements ModInitializer {
 	//Entity Type registering
 	//Wolf Skeleton:
 	public static final EntityType<WolfSkeletonEntity> WOLF_SKELETON = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, WolfSkeletonEntity::new).dimensions(EntityDimensions.fixed(0.6f, 0.8f)).build();
+	public static final EntityType<GiantWolfSkeletonEntity> GIANT_WOLF_SKELETON = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, GiantWolfSkeletonEntity::new).dimensions(EntityDimensions.fixed(2.0f, 2.5f)).build();
+
 
 	@Override
 	public void onInitialize() {
 		//Entity Registering
 		//Wolf Skeleton
 		Registry.register(Registry.ENTITY_TYPE, new Identifier(MOD_ID, "wolf_skeleton"), WOLF_SKELETON);
-		System.out.println("morebones Entity registered");
+		//Giant Wolf Skeleton
+		Registry.register(Registry.ENTITY_TYPE, new Identifier(MOD_ID, "giant_wolf_skeleton"), GIANT_WOLF_SKELETON);
+		System.out.println("morebones entity registered");
+
 		//Attribute registering
-		//Wolf Skeleton:
+		//Wolf Skeleton
 		FabricDefaultAttributeRegistry.register(WOLF_SKELETON, WolfSkeletonEntity.createWolfSkeletonAttributes());
+		//Giant Wolf Skeleton
+		FabricDefaultAttributeRegistry.register(GIANT_WOLF_SKELETON, GiantWolfSkeletonEntity.createGiantWolfSkeletonAttributes());
 		System.out.println("morebones attributes registered");
 	}
 }

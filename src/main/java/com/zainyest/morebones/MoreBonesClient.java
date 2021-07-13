@@ -14,6 +14,7 @@ import net.minecraft.util.Identifier;
 public class MoreBonesClient implements ClientModInitializer {
 
     public static final EntityModelLayer WOLF_SKELETON_MODEL = new EntityModelLayer(new Identifier(MoreBones.MOD_ID, "wolf_skeleton"), "main");
+    public static final EntityModelLayer GIANT_WOLF_SKELETON_MODEL = new EntityModelLayer(new Identifier(MoreBones.MOD_ID, "giant_wolf_skeleton"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -21,10 +22,12 @@ public class MoreBonesClient implements ClientModInitializer {
         //Entity renderer registering:
         //Wolf Skeleton
         EntityRendererRegistry.INSTANCE.register(MoreBones.WOLF_SKELETON, WolfSkeletonRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(MoreBones.GIANT_WOLF_SKELETON, GiantSkeletonWolfRenderer::new);
         System.out.println("morebones renderer registered");
         //Model Layer registering
         //Wolf Skeleton
         EntityModelLayerRegistry.registerModelLayer(WOLF_SKELETON_MODEL, WolfSkeletonModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(GIANT_WOLF_SKELETON_MODEL, GiantSkeletonWolfModel::getTexturedModelData);
         System.out.println("morebones model layers registered");
     }
 }
