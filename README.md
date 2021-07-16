@@ -1,3 +1,9 @@
-# More Bones
+# Fabric Example Mod
 
-This mod aims to add more bones in many ways. So far there is one new entity, the skeleton wolf, which behaves exactly like a wolf but is it's skeletal varient. This mod plans to bring new bosses, items, necromancy, new blocks, passive, tamable and hostile entities.
+## Setup
+
+For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+
+## License
+
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.

@@ -75,7 +75,7 @@ public class GiantSkeletonWolfModel<T extends GiantWolfSkeletonEntity> extends E
 		this.tail = root.getChild("tail");
 		this.tail1 = this.tail.getChild("tail1");
 		this.tail2 = this.tail.getChild("tail2");
-		this.tailEnd = this.tail.getChild("tailEnd");
+		this.tailEnd = this.tail2.getChild("tailEnd");
 
 		this.frontLeftLeg = root.getChild("frontLeftLeg");
 		this.frontLeftThigh = this.frontLeftLeg.getChild("frontLeftThigh");
@@ -272,7 +272,7 @@ public class GiantSkeletonWolfModel<T extends GiantWolfSkeletonEntity> extends E
 		ModelPartData frontRightLegData = bodyData.addChild("frontRightLeg", ModelPartBuilder.create(), ModelTransform.pivot(-14.25F, -11.0F, -13.5F));
 		frontRightLegData.addChild("frontRightThigh", ModelPartBuilder.create()
 				.uv(34, 111).cuboid(-1.5F, -8.0F, -1.5F, 3.0F, 16.0F, 3.0F)
-				.uv(0, 220).cuboid(1.5F, -4.0F, -4.5F, 0.0F, 8.0F, 9.0F), ModelTransform.pivot(0.5F, 9.0F, 0.0F));
+				.uv(0, 220).cuboid(1.5F, -14.0F, -1.5F, 0.0F, 8.0F, 9.0F), ModelTransform.pivot(0.5F, 9.0F, 0.0F));
 		frontRightLegData.addChild("frontRightForeLeg", ModelPartBuilder.create()
 				.uv(71, 115).cuboid(-0.5F, -8.0F, -1.0F, 2.0F, 19.0F, 3.0F), ModelTransform.pivot(0.0F, 23.0F, 0.5F));
 		frontRightLegData.addChild("frontRightPaw", ModelPartBuilder.create()
@@ -284,7 +284,7 @@ public class GiantSkeletonWolfModel<T extends GiantWolfSkeletonEntity> extends E
 		ModelPartData frontLeftLegData = bodyData.addChild("frontLeftLeg", ModelPartBuilder.create(), ModelTransform.pivot(13.25F, -11.0F, -13.5F));
 		frontLeftLegData.addChild("frontLeftThigh", ModelPartBuilder.create()
 				.uv(34, 111).cuboid(-1.5F, -8.0F, -1.5F, 3.0F, 16.0F, 3.0F)
-				.uv(0, 220).cuboid(-0.5F, -4.0F, -4.5F, 0.0F, 8.0F, 9.0F), ModelTransform.pivot(0.5F, 9.0F, 0.0F));
+				.uv(0, 220).cuboid(-0.5F, -14.0F, -1.5F, 0.0F, 8.0F, 9.0F), ModelTransform.pivot(0.5F, 9.0F, 0.0F));
 		frontLeftLegData.addChild("frontLeftForeLeg", ModelPartBuilder.create()
 				.uv(71, 115).cuboid(-0.5F, -8.0F, -1.0F, 2.0F, 19.0F, 3.0F), ModelTransform.pivot(0.0F, 23.0F, 0.5F));
 		frontLeftLegData.addChild("frontLeftPaw", ModelPartBuilder.create()
@@ -325,12 +325,12 @@ public class GiantSkeletonWolfModel<T extends GiantWolfSkeletonEntity> extends E
 		tailData.addChild("tail1", ModelPartBuilder.create()
 				.uv(66, 68).cuboid(-1.0F, -1.0F, -14.0F, 2.0F, 2.0F, 16.0F)
 				.uv(0, 167).cuboid(-2.0F, 0.0F, -14.0F, 4.0F, 0.0F, 16.0F), ModelTransform.NONE);
-		tailData.addChild("tail2", ModelPartBuilder.create()
+		ModelPartData tailData2 = tailData.addChild("tail2", ModelPartBuilder.create()
 				.uv(97, 27).cuboid(-0.5F, -0.5F, 2.0F, 1.0F, 1.0F, 16.0F)
 				.uv(0, 183).cuboid(-1.5F, 0.0F, 2.0F, 3.0F, 0.0F, 16.0F), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		tailData.addChild("tailEnd", ModelPartBuilder.create()
-				.uv(0, 102).cuboid(-0.5F, -0.5F, 18.0F, 1.0F, 1.0F, 16.0F)
-				.uv(0, 199).cuboid(-1.5F, 0.0F, 18.0F, 3.0F, 0.0F, 16.0F), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		tailData2.addChild("tailEnd", ModelPartBuilder.create()
+				.uv(0, 102).cuboid(-0.5F, -0.5F, 2.0F, 1.0F, 1.0F, 16.0F)
+				.uv(0, 199).cuboid(-1.5F, 0.0F, 2.0F, 3.0F, 0.0F, 16.0F), ModelTransform.pivot(0.0F, 0.0F, 16.0F));
 
 		return TexturedModelData.of(modelData, 256, 256);
 	}
@@ -357,10 +357,13 @@ public class GiantSkeletonWolfModel<T extends GiantWolfSkeletonEntity> extends E
 	public void animateModel(T entity, float f, float g, float h) {
 		if (entity.hasAngerTime()) {
 			this.tail.yaw = 0.0F;
+			this.tail1.yaw = 0.0F;
+			this.tail2.yaw = 0.0F;
+			this.tailEnd.yaw = 0.0F;
 		} else {
-			//this.tail.yaw = MathHelper.cos(f * 0.6662F) * 1.4F * g;
-			this.tail2.yaw = MathHelper.cos(f * 0.6662F) * 1.4F * g;
-			this.tailEnd.yaw = MathHelper.cos(f * 0.6662F) * 1.4F * g;
+			this.tail1.yaw = MathHelper.cos(f * 0.6662F * 0.3F) * 0.1F * g;
+			this.tail2.yaw = MathHelper.cos(f * 0.6662F * 0.3F) * 0.4F * g;
+			this.tailEnd.yaw = MathHelper.cos(f * 0.6662F * 0.3F) * 0.4F * g;
 		}
 
 		this.backRightLeg.pitch = MathHelper.cos(f * 0.2f * 0.6662F) * 1.4F * g;

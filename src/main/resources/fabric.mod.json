@@ -3,7 +3,7 @@
   "id": "morebones",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "More Bones",
   "description": "BONES",
   "authors": [
     "Zainyest"
@@ -30,7 +30,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.11.6",
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
