@@ -1,12 +1,14 @@
 package com.zainyest.morebones;
 
+import com.zainyest.morebones.entity.GiantSkeletonWolfModel;
+import com.zainyest.morebones.entity.GiantSkeletonWolfRenderer;
+import com.zainyest.morebones.entity.WolfSkeletonModel;
+import com.zainyest.morebones.entity.WolfSkeletonRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
