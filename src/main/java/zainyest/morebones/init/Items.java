@@ -38,6 +38,9 @@ public class Items {
                     .enchantable(1)
                     .component(DataComponents.WEAPON, new Weapon(1)));
 
+    public static final Item TOTEM_OF_UNDEATH = register("totem_of_undeath",
+            Item::new,
+            new Item.Properties());
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, MoreBones.id(name));
@@ -49,5 +52,8 @@ public class Items {
     public static void init() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT)
                 .register((itemGroup) -> itemGroup.addAfter(net.minecraft.world.item.Items.TRIDENT, Items.BONERANG));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT)
+                .register((itemGroup) -> itemGroup.addAfter(net.minecraft.world.item.Items.TOTEM_OF_UNDYING, Items.TOTEM_OF_UNDEATH));
+
     }
 }
